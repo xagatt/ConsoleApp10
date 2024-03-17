@@ -1,7 +1,7 @@
 ﻿using CarsLibrary;
 using ConsoleApp9;
-using System.Diagnostics;
-using System.Security.Cryptography.X509Certificates;
+using System;
+using System.Linq;
 
 namespace ConsoleApp10
 {
@@ -10,7 +10,7 @@ namespace ConsoleApp10
         static void Main(string[] args)
         {
             Random random = new Random();
-            Auto[] vehicles = new Auto[20];
+            IInit[] vehicles = new IInit[20];
             for (int i = 0; i < vehicles.Length; i++)
             {
                 int num = random.Next(4);
@@ -36,37 +36,26 @@ namespace ConsoleApp10
                 }
             }
 
-            Console.WriteLine("Созданные объекты:");
-            foreach (Auto vehicle in vehicles)
+            foreach (IInit item in vehicles)
             {
-                if (vehicle is DialClock)
-                {
-                    DialClock clock = (DialClock)vehicle;
-                    Console.WriteLine($"DialClock: {clock.Hours:D2}:{clock.Minutes:D2}");
-                    Console.WriteLine(DialClock.GetObjectCount);
-                }
-                else
-                {
-                    vehicle.Show();
-                }
-                Console.WriteLine();
+                item.Show();
+                // Console.WriteLine(item);
             }
 
             MostExpensiveOffroad(vehicles);
             AveragePassengerSpeed(vehicles);
-            TotalCost(vehicles);
 
-            static void MostExpensiveOffroad(Auto[] vehicles)
+            static void MostExpensiveOffroad(IInit[] vehicles)
             {
                 Off_road mostExpensiveOffroad = null;
                 int maxCost = 0;
 
                 foreach (var vehicle in vehicles)
                 {
-                    if (vehicle is Off_road && vehicle.Cost > maxCost)
+                    if (vehicle is Off_road offroad && offroad.Cost > maxCost)
                     {
-                        mostExpensiveOffroad = (Off_road)vehicle;
-                        maxCost = vehicle.Cost;
+                        mostExpensiveOffroad = offroad;
+                        maxCost = offroad.Cost;
                     }
                 }
 
@@ -81,9 +70,9 @@ namespace ConsoleApp10
                 }
             }
 
-            static void AveragePassengerSpeed(Auto[] vehicles)
+            static void AveragePassengerSpeed(IInit[] vehicles)
             {
-                var passengerVehicles = vehicles.Where(v => v is Passenger).Select(v => (Passenger)v);
+                var passengerVehicles = vehicles.OfType<Passenger>();
                 double averageSpeed = 0;
                 int count = 0;
 
@@ -102,18 +91,6 @@ namespace ConsoleApp10
                 {
                     Console.WriteLine("В массиве нет легковых автомобилей.");
                 }
-            }
-
-            static void TotalCost(Auto[] vehicles)
-            {
-                int totalCost = 0;
-
-                foreach (var vehicle in vehicles)
-                {
-                    totalCost += vehicle.Cost;
-                }
-
-                Console.WriteLine($"Суммарная стоимость всех автомобилей: {totalCost}");
             }
 
             Console.WriteLine();

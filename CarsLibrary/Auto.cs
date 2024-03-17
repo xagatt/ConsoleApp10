@@ -1,4 +1,5 @@
 ﻿using CarsLibrary;
+using ConsoleApp9;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Xml.Linq;
 
 namespace ConsoleApp10
 {
-    public class Auto : IInit, IComparable<Auto>
+    public class Auto : IInit, IComparable<Auto>, IComparer<Auto>
     {
         //Автомобиль: бренд, год выпуска, цвет, стоимость, дорожный просвет;
         protected string brand;
@@ -19,7 +20,6 @@ namespace ConsoleApp10
         protected int clearance;
         protected static int count = 0;
         public IdNumber id;
-
 
         public string Brand
         {
@@ -176,11 +176,11 @@ namespace ConsoleApp10
             return this.Cost.CompareTo(other.Cost);
         }
 
-        //public override string ToString()
-        //{
-        //    return $"Бренд: {brand};\n Год: {year};\n Цвет: {color};\n Цена: {cost}$";
-        //}
-        
+        public override string ToString()
+        {
+            return $"Бренд: {brand};\n Год: {year};\n Цвет: {color};\n Цена: {cost}$";
+        }
+
         public Auto(IdNumber id)
         {
             this.id = new IdNumber(id);
@@ -195,11 +195,18 @@ namespace ConsoleApp10
         {
             return new Auto(new IdNumber(id.Number));
         }
-        public override string ToString()
-        {
-            return $"Auto: {id}";
-        }
 
+        public int Compare(Auto? x, Auto? y)
+        {
+            if (x == null && y == null)
+                return 0;
+            if (x == null)
+                return -1;
+            if (y == null)
+                return 1;
+
+            return x.Year.CompareTo(y.Year);
+        }
     }
     public class IdNumber
     {

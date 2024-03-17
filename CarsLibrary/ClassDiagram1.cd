@@ -3,7 +3,7 @@
   <Class Name="ConsoleApp10.Auto">
     <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEEAAAABICAEASEhAAAAhAAAAAUAACAAAACgBABAhA=</HashCode>
+      <HashCode>AAEEAAAABICAEASEhAAAAhAAABAUAACAAAACgBABAhA=</HashCode>
       <FileName>Auto.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.32" />
@@ -16,15 +16,15 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp9.DialClock">
-    <Position X="4.75" Y="2.75" Width="1.5" />
+    <Position X="4.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAADYAAAExEEAIgQAAwAAAAIAAAACAAAAAAA=</HashCode>
+      <HashCode>AAAAABAAAADYAAAExEEAYgQAAwAEAAIAAAACAAAAAAA=</HashCode>
       <FileName>DialClock.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CarsLibrary.Off_road">
-    <Position X="9.5" Y="2.5" Width="1.5" />
+    <Position X="9.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAQAAAAACAAAAAgAAAAAAAAAAEAAIAAAACAAAAQFA=</HashCode>
       <FileName>Off_road.cs</FileName>
@@ -32,7 +32,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CarsLibrary.Passenger">
-    <Position X="11.25" Y="3.5" Width="1.5" />
+    <Position X="11.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAACAAAAAhgAAIAIAAAAEAAAAAAACAAAAABI=</HashCode>
       <FileName>Passenger.cs</FileName>
@@ -48,9 +48,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="CarsLibrary.IInit">
-    <Position X="13.25" Y="4.5" Width="1.5" />
+    <Position X="1.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAEAAAAAAACAAAAAAA=</HashCode>
       <FileName>Interface1.cs</FileName>
     </TypeIdentifier>
   </Interface>

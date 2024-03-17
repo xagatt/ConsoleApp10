@@ -10,7 +10,7 @@ namespace CarsLibrary
     {
         void Init();
         void RandomInit();
-
+        void Show();
     }
 
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp9
 {
-    public class DialClock : Auto, IInit
+    public class DialClock : IInit
     {
         private int hours;
         private int minutes;
@@ -39,7 +39,7 @@ namespace ConsoleApp9
         public int length;
 
 
-        public override void Init()
+        public virtual void Init()
         {
             Console.WriteLine("Введите часы: ");
             Hours = int.Parse(Console.ReadLine());
@@ -48,7 +48,7 @@ namespace ConsoleApp9
             Minutes = int.Parse(Console.ReadLine());
         }
 
-        public override void RandomInit()
+        public virtual void RandomInit()
         {
             Random rnd = new Random();
             Hours = rnd.Next(0, 12);
@@ -189,12 +189,21 @@ namespace ConsoleApp9
             return dc.Minutes - minutes;
         }
 
+        public static explicit operator DialClock(Auto v)
+        {
+            throw new NotImplementedException();
+        }
+
         // формат времени
         public override string ToString()
         {
             return $"{Hours:D2}:{Minutes:D2}";
         }
 
+        public void Show()
+        {
+            Console.WriteLine("hehehehehe");
+        }
     }
 
 }
